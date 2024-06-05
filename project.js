@@ -21,13 +21,17 @@ const randomMessages = [
         "The only limit to our realization of tomorrow is our doubts of today",
         "You are never too old to set another goal or to dream a new dream",
         "Keep your face always toward the sunshine—and shadows will fall behind you",
-]
+];
+const luckyNumbers = [3, 7, 9, 11, 13, 18, 21, 25, 27, 33, 42, 45, 50, 54, 66, 72, 77, 81, 88, 99];
+const astrologySigns = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+const trueRandom = { randomMessages, luckyNumbers, astrologySigns };
 
 let button = document.getElementById('submit');
 let message = document.getElementById('message');
 let randomNum = Math.floor(Math.random() * 20);
+let randomSigns = Math.floor(Math.random() * astrologySigns.length);
 
 const messageGen = () => {
-    message.innerHTML = randomMessages[randomNum];
+    message.innerHTML = `Sign: ${astrologySigns[randomSigns]} - Number: ${luckyNumbers[randomNum]} - Message: ${randomMessages[randomNum]}.`;
 }
 button.addEventListener('click', messageGen);
